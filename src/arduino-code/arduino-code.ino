@@ -33,7 +33,39 @@ int rainDropValue; // Store rain drop value from sensor
 
 void setup() {
   // put your setup code here, to run once:
-
+  Serial.begin(9600); // Serial communication initialisation
+  Serial.println("Arduino Weather Station:-");
+  Serial.println("Project by Adarsh, Adlin and Swathi.");
+  pinMode(MOISURESEN, INPUT); // Moisure sensor pin initialisation
+  pinMode(RAINDROP, INPUT); // Rain drop sensor pin initialisation
+  dht.begin(); // DHT sensor initialization
+  Serial.println("DHT11 initialised.");
+  if(!display.begin(SSD1306_SWITCHCAPVCC)) {
+    
+    for(;;); // 
+  }
+  display.clearDisplay();
+  display.display();
+  display.clearDisplay();
+  display.setTextSize(2);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0,10);
+  display.print("Arduino");
+  display.setCursor(0,30);
+  display.print("Weather");
+  display.setCursor(0,50);
+  display.print("Station");
+  display.display();
+  delay(1000);
+  display.clearDisplay();
+  display.setCursor(0,10);
+  display.print("By");
+  display.setCursor(0,30);
+  display.print("Adarsh, Adlin &");
+  display.setCursor(0,50);
+  display.print("Swathy");
+  display.display();
+  delay(1000);
 }
 
 void loop() {
