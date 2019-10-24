@@ -26,6 +26,11 @@ DHT dht(DHTPIN, DHTTYPE); // Initialize DHT sensor for normal 16mhz Arduino
 
 #define RAINDROP A1 // Rain drop sensor pin number
 
+float hum;  // Stores humidity value
+float temp; // Stores temperature valuex
+int mosiureValue; // Store moisure value from sensor
+int rainDropValue; // Store rain drop value from sensor
+
 void setup() {
   // put your setup code here, to run once:
 
